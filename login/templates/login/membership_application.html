@@ -1,0 +1,28 @@
+{% extends 'login/base.html' %}
+{% load static %}
+
+{% block title %}
+    #SOMOSKYO | Registrate
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <form method="post">
+        {% csrf_token %}
+        <h2>Solicitud de Registro</h2>
+        
+        <!-- Personaliza cada campo del formulario -->
+        {% for field in form %}
+        <div class="input-field">
+            {{ field }}
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        </div>
+        {% endfor %}
+        
+        <button type="submit">Enviar Solicitud</button>
+    </form>
+    <div class="register">
+        <p><a href="{% url 'login:login' %}">Volver</a></p>
+    </div>
+</div>
+{% endblock %}

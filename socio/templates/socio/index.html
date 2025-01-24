@@ -1,0 +1,83 @@
+{% extends 'socio/base.html' %}
+{% load static %}
+
+{% block title %}
+    SOMOSKYO | Club Privado
+{% endblock %}
+
+{% block content %}
+    <section id="club" class="section has-img-bg pb-0">
+        <div class="container">
+            <div class="mt-5 py-4" style="border-top: 1px solid black !important;"></div>
+            <h6 class="section-title mb-0 text-center">Servicios</h6>
+            <h6 class="section-subtitle mb-5 text-center">Solo para socios</h6>
+            <div class="row justify-content-center">
+                <div class="col-md-2 col-sm-6 text-center">
+                    <div class="service_box border rounded p-3">
+                        <div class="breakfast_img">
+                            <img src="{% static 'socio/imgs/promocion.png' %}" class="img-fluid" alt="Promociones">
+                        </div>
+                        <div class="seemore_bt mt-2">
+                            <a href="#" class="btn btn-primary">Promos</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6 text-center">
+                    <div class="service_box border rounded p-3">
+                        <div class="breakfast_img">
+                            <img src="{% static 'socio/imgs/calendario.png' %}" class="img-fluid" alt="Calendario">
+                        </div>
+                        <div class="seemore_bt mt-2">
+                            <a href="#" class="btn btn-primary">Calendario</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6 text-center">
+                    <div class="service_box border rounded p-3">
+                        <div class="breakfast_img">
+                            <img src="{% static 'socio/imgs/menu.png' %}" class="img-fluid" alt="Menu">
+                        </div>
+                        <div class="seemore_bt mt-2">
+                            <a href="#" class="btn btn-primary">Menu</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6 text-center">
+                    <div class="service_box border rounded p-3">
+                        <div class="breakfast_img">
+                            <img src="{% static 'socio/imgs/logistics-delivery.png' %}" class="img-fluid" alt="Delivery">
+                        </div>
+                        <div class="seemore_bt mt-2">
+                            <a href="#" class="btn btn-primary">Delivery</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6 text-center">
+                    <div class="service_box border rounded p-3">
+                        <div class="breakfast_img">
+                            <img src="{% static 'socio/imgs/usuario.png' %}" class="img-fluid" alt="Perfil">
+                        </div>
+                        <div class="seemore_bt mt-2">
+                            <a href="#" class="btn btn-primary">Perfil</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- service section end -->
+
+    <!-- Footer Section -->
+    <section class="section has-img-bg pb-0">
+        <div class="container">
+            <div class="mt-5 py-4 border-top border-secondary">
+                <p class="mb-0 small text-center">
+                    &copy; <a href="#">SOMOSKYO 2024</a>. All Rights Reserved.
+                    <a href="https://github.com/paoladenic/">DENIC</a>
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- End of Page Footer --> 
+	
+{% endblock %}

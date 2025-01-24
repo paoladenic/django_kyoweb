@@ -1,0 +1,65 @@
+{% extends 'socio/base.html' %}
+
+{% block title %}
+    #SOMOSKYO | Editar Perfil
+{% endblock %}
+
+{% block content %}
+<style>
+    /* Estilos específicos para el formulario de edición de perfil */
+    section.has-img-bg .custom-form label, 
+    section.has-img-bg .custom-form input, 
+    section.has-img-bg .custom-form textarea, 
+    section.has-img-bg .custom-form select {
+        color: white !important; /* Cambia el texto a blanco */
+    }
+
+    section.has-img-bg .custom-form input::placeholder {
+        color: #d3d3d3 !important; /* Color más tenue para el texto del placeholder */
+    }
+
+    section.has-img-bg .custom-form .form-group {
+        margin-bottom: 1.5rem; /* Espaciado entre grupos de formularios */
+    }
+
+    section.has-img-bg .custom-form input, 
+    section.has-img-bg .custom-form textarea, 
+    section.has-img-bg .custom-form select {
+        background-color: #333 !important; /* Fondo oscuro */
+        border: 1px solid #555 !important; /* Bordes suaves */
+        padding: 0.5rem; /* Espaciado interno */
+    }
+
+    section.has-img-bg .custom-form button {
+        margin-top: 1.5rem; /* Margen superior para el botón */
+    }
+</style>
+
+<section class="section has-img-bg pb-0">
+    <div class="container">
+        <div class="mt-5 py-4 border-top border-secondary"></div>
+        <h4 class="section-title text-center">Editar Perfil</h4>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form method="POST" class="custom-form">
+                    {% csrf_token %}
+                    <!-- Mostrar mensajes de error si los hay -->
+                    {% for field in form %}
+                        <div class="form-group">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}
+                            {% if field.errors %}
+                                <small class="text-danger">{{ field.errors|striptags }}</small>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary btn-block">Guardar Cambios</button>
+                </form>
+                <br>
+                <a href="{% url 'socio:home' %}" class="btn btn-dark">Volver</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

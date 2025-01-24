@@ -1,0 +1,70 @@
+{% extends 'web/mem.html' %}
+
+{% block title %}
+    #SOMOSKYO | Hazte Miembro
+{% endblock %}
+
+{% block content %}
+<style>
+    /* Aplica solo a los elementos dentro de esta página */
+    .list-group {
+        background-color: transparent; /* Fondo transparente o ajustado si es necesario */
+    }
+    .list-group-item {
+        background-color: #f8f9fa; /* Fondo claro para contraste */
+        color: #212529; /* Color de texto oscuro */
+        border: 1px solid #dee2e6; /* Añade borde para mejor visibilidad */
+        font-size: 0.9rem; /* Reduce el tamaño del texto */
+    }
+    .list-group-item:hover {
+        background-color: #e9ecef; /* Fondo más oscuro al pasar el ratón */
+    }
+</style>
+
+<section class="section has-img-bg pb-0">
+    <div class="container">
+        <div class="mt-5 py-4 border-top border-secondary"></div>
+        <h4 class="section-title text-center text-success">¿CÓMO HACERSE SOCI@?</h4>
+        <p class="text-center mt-4">Para unirte a nuestra comunidad, es necesario cumplir con los siguientes requisitos y pasos:</p>
+
+        <div class="mt-5">
+            <h4 class="text-primary">Requisitos para la membresía:</h4>
+            <ul class="list-group">
+                <li class="list-group-item">Edad mínima: Debes ser mayor de 21 años.</li>
+                <li class="list-group-item">Documento de identidad: Presenta un documento de identificación vigente con fotografía (DNI, NIE, pasaporte o permiso de conducir).</li>
+                <li class="list-group-item">Aval:
+                    <ul>
+                        <li>Es necesario contar con el aval de un socio actual que respalde tu solicitud.</li>
+                        <li>Si no conoces a ningún miembro de la asociación, puedes presentar un documento legal que justifique tu proximidad al club como motivo para solicitar la membresía.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mt-5">
+            <h4 class="text-primary">Proceso de inscripción:</h4>
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item">Cumplir los requisitos mencionados: Antes de presentarte, asegúrate de contar con toda la documentación necesaria.</li>
+                <li class="list-group-item">Cita previa: Coordina tu visita con nuestro equipo para garantizar una atención personalizada.</li>
+                <li class="list-group-item">Formulario de inscripción: Completa el formulario proporcionado por la asociación, donde también deberás aceptar nuestros estatutos y normas internas.</li>
+                <li class="list-group-item">Cuota de inscripción: Abona la cuota correspondiente al año vigente en el momento de tu inscripción.</li>
+                <li class="list-group-item">Aprobación: La Junta Directiva revisará y aprobará tu solicitud.</li>
+            </ol>
+        </div>
+
+        <div class="mt-5">
+            <h4 class="text-primary">Normas básicas de la asociación:</h4>
+            <ul class="list-group">
+                <li class="list-group-item">La asociación es un espacio privado. El acceso está limitado exclusivamente a los socios activos.</li>
+                <li class="list-group-item">El carnet de socio es personal e intransferible.</li>
+                <li class="list-group-item">Respetar a los demás socios, las instalaciones y las normas internas es fundamental para mantener una atmósfera de respeto y tolerancia.</li>
+            </ul>
+        </div>
+
+        <div class="text-center mt-5">
+            <p>Si tienes alguna duda o deseas más información, no dudes en ponerte en contacto con nosotros. Estamos aquí para ayudarte a ser parte de nuestra comunidad.</p>
+            <a href="{% url 'web:home' %}" class="btn btn-primary">Volver</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

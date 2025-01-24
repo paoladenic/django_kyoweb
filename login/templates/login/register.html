@@ -1,0 +1,66 @@
+{% extends 'login/base.html' %}
+
+{% block title %}
+    #SOMOSKYO | Registrate
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <form method="post">
+        {% csrf_token %}
+        <h2>Registro</h2>
+        
+        <!-- Generar los campos del formulario de Django -->
+        <div class="input-field">
+            {{ form.first_name }}
+            <label for="id_first_name">Ingresa tu nombre</label>
+        </div>
+        <div class="input-field">
+            {{ form.last_name }}
+            <label for="id_last_name">Ingresa tu apellido</label>
+        </div>
+        <div class="input-field">
+            {{ form.email }}
+            <label for="id_email">Ingresa tu email</label>
+        </div>
+        <div class="input-field">
+            {{ form.password1 }}
+            <label for="id_password1">Crea una contraseña</label>
+        </div>
+        <div class="input-field">
+            {{ form.password2 }}
+            <label for="id_password2">Confirma tu contraseña</label>
+        </div>
+
+        <button type="submit" href="{% url 'login:home' %}">Registrarse</button>
+        
+        <div class="register">
+            <p>¿Ya tienes una cuenta? <a href="{% url 'login:login' %}">Inicia sesión aquí</a></p>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+
+        <!-- Generar los campos del formulario de Django -->
+        <div class="input-field">
+            {{ form.first_name }}
+            <label for="id_first_name">Ingresa tu nombre</label>
+        </div>
+        <div class="input-field">
+            {{ form.last_name }}
+            <label for="id_last_name">Ingresa tu apellido</label>
+        </div>
+        <div class="input-field">
+            {{ form.email }}
+            <label for="id_email">Ingresa tu email</label>
+        </div>
+        <div class="input-field">
+            {{ form.password1 }}
+            <label for="id_password1">Crea una contraseña</label>
+        </div>
+        <div class="input-field">
+            {{ form.password2 }}
+            <label for="id_password2">Confirma tu contraseña</label>
+        </div>
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="asociacion, club privado, barcelona, club barcelona, cbd, socios, fumadores">
+    <meta name="description" content="Club privado para entusiastas del cannabis en la ciudad de Barcelona.">
+
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static 'socio/vendors/themify-icons/css/themify-icons.css' %}">
+
+    <!-- Incluir FontAwesome en el proyecto -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
+
+    <link rel="icon" href="{% static 'web/imgs/favicon.ico' %}" type="image/x-icon">
+    
+    <!-- Bootstrap main styles -->
+	<link rel="stylesheet" href="{% static 'socio/css/style.css' %}">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    {% if user.is_authenticated %}
+        <!-- page Navigation -->
+        <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="{% static 'socio/imgs/logo-kyo2.png' %}" alt="">
+                </a>
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item ml-3">
+                            <span class="navbar-text" style="font-weight: 600; color: rgb(17, 102, 22) !important;">
+                                {{ user.first_name }} {{ user.last_name }}
+                            </span>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'socio:home' %}">Inicio</a>
+                        </li>  
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'socio:edit_profile' %}">Editar Perfil</a>
+                        </li>                     
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'socio:change_password' %}">Cambiar Contraseña</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'socio:logout' %}" class="nav-link" style="color: rgb(255, 5, 5) !important;">Salir</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End Of Second Navigation -->
+
+        <!-- Page Content -->
+        {% block content %} {% endblock %}
+        <!-- End Page Content -->
+
+        
+        <!-- Back to Top -->
+        <!-- <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-up"></i></a> -->
+
+        <!-- core  -->
+        <script src="{% static 'socio/vendors/jquery/jquery-3.4.1.js' %}"></script>
+        <script src="{% static 'socio/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+        <!-- bootstrap 3 affix -->
+        <script src="{% static 'socio/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+
+        <!-- Isotope -->
+        <script src="{% static 'socio/vendors/isotope/isotope.pkgd.js' %}"></script>
+
+        <!-- js -->
+        <script src="{% static 'socio/js/style.js' %}"></script>
+        
+        {% block scripts %}{% endblock %}
+    {% else %}
+        <div class="text-center mt-5">
+            <h3 class="text-danger">Por favor, inicia sesión para acceder a esta página.</h3>
+            <a href="{% url 'login:login' %}" class="btn btn-primary mt-3">Iniciar sesión</a>
+        </div>
+    
+    {% endif %}
+</body>
+</html>

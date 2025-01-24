@@ -1,0 +1,202 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+{% block title %}
+    SOMOSKYO | Club Privado
+{% endblock %}
+
+{% block content %}
+    <!-- Page Header -->
+    <header class="header">
+        <div class="overlay">
+            <h1 class="subtitle">Club Privado</h1>
+            <h1 class="title">SOMOSKYO</h1>  
+        </div>  
+        <div class="shape">
+            <svg viewBox="0 0 1500 200">
+                <path d="m 0,240 h 1500.4828 v -71.92164 c 0,0 -286.2763,-81.79324 -743.19024,-81.79324 C 300.37862,86.28512 0,168.07836 0,168.07836 Z"/>
+            </svg>
+        </div>  
+    </header>
+    <!-- End Of Page Header -->
+
+    <!-- Nosotros Section -->
+    <section class="section" id="nosotros">
+        <div class="container">
+            <div class="mt-5 py-4" style="border-top: 1px solid black !important;"></div>
+            <div class="row">
+                <div class="col-md-6 pr-md-5 mb-2 mb-md-0 text-right">
+                    <img src="{% static 'web/imgs/logo-kyo.png' %}" alt="Logo Kyo" class="w-75 shadow-sm img-fluid">
+                </div>
+                <div class="col-md-6 pl-md-5 text-left">
+                    <div class="row">
+                        <div class="col-12 mt-4 text-left">
+                            <p>Bienvenidos a nuestra asociación de amantes del cannabis, ubicada en el corazón de Barcelona, a pocos pasos de la icónica Sagrada Familia. Nuestro club está diseñado para ofrecer un espacio seguro, relajado y acogedor para mayores de 21 años que comparten una pasión por la cultura del cannabis.</p>
+                            <p>Nos definimos como una comunidad que promueve un enfoque responsable y consciente, creando un entorno donde nuestros socios puedan conectar y aprender más sobre esta planta en un ambiente respetuoso.</p>
+                            <p>Cumplimos estrictamente con las normativas legales españolas para asociaciones de cannabis. Nuestro espacio está dedicado exclusivamente a nuestros miembros, con una filosofía basada en el respeto y el bienestar.</p>
+                            <p>Si estás interesado en unirte, puedes conocer los requisitos de membresía <a href={% url 'web:membresia' %} style="color: red; font-weight: bold;">AQUÍ</a>.</p>
+                            <p><b>+21</b></p>
+                            <p><b>Solo para socios</b></p>
+                            <p><b>#somoskyo</b></p>
+                        </div>
+                    </div>
+                </div>
+            </div>              
+        </div>
+    </section>
+    <!-- End OF Nosotros Section -->
+
+    <!-- Club Section -->
+    <section id="club" class="section has-img-bg pb-0">
+        <div class="container">
+            <div class="mt-5 py-4" style="border-top: 1px solid black !important;"></div>
+            <h6 class="section-title mb-0 text-center">El Club</h6>
+            <h6 class="section-subtitle mb-5 text-center">Solo para socios</h6>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card border-0 mb-4">
+                        <img src="{% static 'web/imgs/club1.png' %}" alt="" class="card-img-top w-100">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 mb-4">
+                        <img src="{% static 'web/imgs/club2.png' %}" alt="" class="card-img-top w-100">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 mb-4">
+                        <img src="{% static 'web/imgs/club3.png' %}" alt="" class="card-img-top w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Club Section -->
+
+    <!-- Ubi Section -->
+    <section id="ubi" class="section has-img-bg pb-0">
+        <div class="container">
+            <div class="mt-5 py-4 border-top border-secondary"></div>
+            <h4 class="section-title text-center">Dónde Estamos</h4>
+            <br>
+            <div class="row justify-content-md-center">
+                <div class="col-md-5 my-3">
+                    <h3 class="mb-0">Dirección</h3>
+                    <p class="mb-4">Carrer Sicilia 282, Local, 08013, Barcelona</p>
+                    <br>
+                    <h3 class="mb-0">Horario</h3>
+                    <p class="mb-4">Lunes a Domingo de 11:30 a 23:00</p>
+                </div>
+                <div class="col-md-7">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.743931287661!2d2.171669411646344!3d41.40136709500821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a34c9f624815%3A0x4f512bd636192ebb!2sAsociaci%C3%B3n%20Kyo!5e0!3m2!1ses!2ses!4v1725404305515!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Ubi Section -->
+
+    <!-- Contact Section -->
+    <section id="contacto" class="section has-img-bg pb-0">
+        <div class="container">
+            <div class="mt-5 py-4 border-top border-secondary"></div>
+            <h4 class="section-title text-center">Contáctanos</h4>
+            <!-- Mostrar mensajes de éxito o error -->
+            {% if messages %}
+                <div class="row">
+                    <div class="col-md-12">
+                        {% for message in messages %}
+                            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="row align-items-center">
+                <div class="col-md-5 my-3">
+                    <i class="fa-solid fa-phone"></i>
+                    {% comment %} <h6 class="mb-0">Teléfono</h6> {% endcomment %}
+                    <p class="mb-4">+34 665 525 410</p>
+
+                    <i class="fa-solid fa-location-dot"></i>
+                    {% comment %} <h6 class="mb-0">Dirección</h6> {% endcomment %}
+                    <p class="mb-4">Carrer Sicilia 282, Local, 08013, Barcelona</p>
+
+                    <i class="fa-solid fa-envelope"></i>
+                    {% comment %} <h6 class="mb-0">Correo</h6> {% endcomment %}
+                    <p class="mb-0">info@somoskyo.club</p>
+                    <p></p>
+                    <br>
+                    <p class="mt-3">
+                        <a href="https://www.facebook.com/somoskyobcn" target="_blank" class="social-link mr-3">
+                            <i class="fab fa-facebook-f"></i> <!-- Ícono de Facebook -->
+                        </a>
+                        <a href="https://www.instagram.com/somoskyo/" target="_blank" class="social-link mr-3">
+                            <i class="fab fa-instagram"></i> <!-- Ícono de Instagram -->
+                        </a>
+                        <a href="https://wa.link/3u9iye" target="_blank" class="social-link">
+                            <i class="fab fa-whatsapp"></i> <!-- Ícono de WhatsApp -->
+                        </a>
+                    </p>
+                </div>
+                <div class="col-md-7">
+                    <form method="POST" action="{% url 'web:contacto' %}">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <!-- Campo Nombre -->
+                            <div class="form-group col-sm-4">
+                                <input type="text" class="form-control text-white rounded-0 bg-transparent" name="name" placeholder="Nombre" value="{{ form.name.value }}">
+                                {% if form.name.errors %}
+                                    <small class="text-danger">{{ form.name.errors|striptags }}</small>
+                                {% endif %}
+                            </div>
+                            <!-- Campo Email -->
+                            <div class="form-group col-sm-4">
+                                <input type="email" class="form-control text-white rounded-0 bg-transparent" name="email" placeholder="Email" value="{{ form.email.value }}">
+                                {% if form.email.errors %}
+                                    <small class="text-danger">{{ form.email.errors|striptags }}</small>
+                                {% endif %}
+                            </div>
+                            <!-- Campo Mensaje -->
+                            <div class="form-group col-12">
+                                <textarea name="message" cols="30" rows="4" class="form-control text-white rounded-0 bg-transparent" placeholder="Mensaje">{{ form.message.value }}</textarea>
+                                {% if form.message.errors %}
+                                    <small class="text-danger">{{ form.message.errors|striptags }}</small>
+                                {% endif %}
+                            </div>
+                            <!-- Campo Captcha -->
+                            <div class="form-group col-12">
+                                {{ form.captcha }}
+                                {% for error in form.captcha.errors %}
+                                    <p class="text-danger">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <!-- Botón de envío -->
+                            <div class="form-group col-12 mb-0">
+                                <button type="submit" class="btn btn-primary rounded w-md mt-3">Enviar</button>
+                            </div>
+                        </div>
+                    </form>                   
+                </div>
+            </div>  
+        </div>
+    </section>
+    <!-- End Contact Section -->
+
+    <!-- Footer Section -->
+    <section class="section has-img-bg pb-0">
+        <div class="container">
+            <div class="mt-5 py-4 border-top border-secondary">
+                <p class="mb-0 small text-center">
+                    &copy; <a href="#">SOMOSKYO 2024</a>. All Rights Reserved.
+                    <a href="https://github.com/paoladenic/">DENIC</a>
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- End of Page Footer --> 
+	
+{% endblock %}

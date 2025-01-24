@@ -1,0 +1,33 @@
+{% extends 'login/base.html' %}
+
+{% block title %}
+    #SOMOSKYO | Edita tu perfil
+{% endblock %}
+
+{% block content %}
+    <h2>Edita tu Perfil</h2>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            {% if form.errors %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <p>Tienes errores en el formulario</p>
+                    {% for field in form %}
+                        {% if field.errors %}
+                            {{ field.errors }}
+                        {% endif %}
+                    {% endfor %}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endif %}
+            
+            {{ form.as_p }}
+            <button type="submit" href="{% url 'login:home' %}" class="button">Actualizar Perfil</button>
+            
+        </form>
+    </div>
+    <a href="{% url 'login:home' %}" class="btn btn-dark">Volver</a>
+{% endblock %}
+

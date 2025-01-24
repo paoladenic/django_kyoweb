@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="asociacion, club privado, barcelona, club barcelona, cbd, socios, fumadores">
+    <meta name="description" content="Club privado para entusiastas del cannabis en la ciudad de Barcelona.">
+    <meta property="og:title" content="SOMOSKYO Web" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.somoskyo.club" />
+    <meta property="og:description" content="Club privado para entusiastas del cannabis en la ciudad de Barcelona." />
+
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static 'web/vendors/themify-icons/css/themify-icons.css' %}">
+
+    <link rel="icon" href="{% static 'web/imgs/favicon.ico' %}" type="image/x-icon">
+
+    <!-- Incluir FontAwesome en el proyecto -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
+    
+    <!-- Bootstrap main styles -->
+	<link rel="stylesheet" href="{% static 'web/css/style.css' %}">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- page Navigation -->
+    <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'web:home' %}#home">
+                <img src="{% static 'web/imgs/logo-kyo2.png' %}" alt="club kyo">
+            </a>
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'web:home' %}">Volver</a>
+                    </li>                     
+                    <li class="nav-item">
+                        <a href="{% url 'login:login' %}" class="ml-4 nav-link btn btn-primary btn-sm rounded" style="color: white !important;">Acceso Socios</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Of Second Navigation -->
+
+    <!-- Page Content -->
+    {% block content %} {% endblock %}
+    <!-- End Page Content -->
+
+    
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- core  -->
+    <script src="{% static 'web/vendors/jquery/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'web/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+    <!-- bootstrap 3 affix -->
+	<script src="{% static 'web/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+
+    <!-- Isotope -->
+    <script src="{% static 'web/vendors/isotope/isotope.pkgd.js' %}"></script>
+
+    <!-- js -->
+    <script src="{% static 'web/js/style.js' %}"></script>
+    
+    {% block scripts %}{% endblock %}
+</body>
+</html>

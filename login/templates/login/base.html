@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="club privado, Barcelona, cannabis, socios, CBD, fumadores, asociación">
+  
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+
+    <link rel="icon" href="{% static 'web/imgs/favicon.ico' %}" type="image/x-icon">
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+  <!-- Contenido principal -->
+    {% block content %}
+    {% endblock content %}
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
